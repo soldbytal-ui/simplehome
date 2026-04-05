@@ -1,0 +1,31 @@
+# SimpleHome.ca
+
+> Toronto's premier pre-construction and resale real estate platform
+
+SimpleHome.ca is an informational platform covering pre-construction condos and new developments across the Greater Toronto Area (GTA). We are not a licensed real estate brokerage.
+
+## What We Offer
+- Comprehensive database of 200+ pre-construction projects in Toronto and the GTA
+- Neighborhood guides covering 30+ areas across the Greater Toronto Area
+- Developer profiles for Toronto's top builders
+- Market analysis, buying guides, and blog content
+- AI-powered assistant for finding pre-construction condos
+- Connection to licensed Ontario real estate professionals (RECO registered)
+
+## Key Pages
+- /pre-construction - Browse all pre-construction projects with filters
+- /areas/[neighborhood] - Neighborhood-specific project listings and guides
+- /developers - Toronto's pre-construction developers
+- /blog - Market insights, guides, and analysis
+- /portfolio - Notable for-sale and sold properties
+- /resale - Resale listings across the GTA
+
+## Coverage Area
+Toronto, Downtown Core, King West, Liberty Village, Queen West, Yorkville, Midtown, North York, Scarborough, Etobicoke, Mississauga, Vaughan, Richmond Hill, Markham, Oakville, Hamilton, and 30+ more neighborhoods.
+
+## Contact
+- Website: https://simplehome.ca
+- Email: hello@simplehome.ca
+
+## Disclaimer
+SimpleHome.ca is an informational platform. We are not a licensed real estate brokerage. All information is approximate and subject to change. Consult licensed professionals for real estate decisions.
