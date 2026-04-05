@@ -32,6 +32,17 @@ body {
   display: none !important;
 }
 
+.map-tooltip .mapboxgl-popup-content {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+.map-tooltip .mapboxgl-popup-tip {
+  display: none !important;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

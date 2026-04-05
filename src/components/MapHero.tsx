@@ -5,16 +5,41 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronDown, X, MapPin, ArrowRight } from 'lucide-react';
 import { Project } from '@/types';
-import { formatPriceRange, getStatusLabel, getMarkerColor } from '@/lib/utils';
+import { formatPriceRange, getStatusLabel } from '@/lib/utils';
 
 interface MapHeroProps {
   projects: Project[];
+}
+
+function createCirclePoly(lng: number, lat: number, radiusMeters: number, sides = 32): number[][] {
+  const coords: number[][] = [];
+  const earthRadius = 6378137;
+  for (let i = 0; i <= sides; i++) {
+    const angle = (i / sides) * 2 * Math.PI;
+    const dx = radiusMeters * Math.cos(angle);
+    const dy = radiusMeters * Math.sin(angle);
+    const newLat = lat + (dy / earthRadius) * (180 / Math.PI);
+    const newLng = lng + (dx / (earthRadius * Math.cos((lat * Math.PI) / 180))) * (180 / Math.PI);
+    coords.push([newLng, newLat]);
+  }
+  return coords;
+}
+
+function getStatusColorHex(status: string): string {
+  switch (status) {
+    case 'pre-construction': return '#0066FF';
+    case 'under-construction': return '#10B981';
+    case 'completed': return '#F59E0B';
+    case 'selling': return '#8B5CF6';
+    default: return '#0066FF';
+  }
 }
 
 export default function MapHero({ projects }: MapHeroProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [mapInteractive, setMapInteractive] = useState(false);
 
   const handleMarkerClick = useCallback((project: Project) => {
     setSelectedProject(project);
@@ -37,12 +62,30 @@ export default function MapHero({ projects }: MapHeroProps) {
         pitch: 55,
         bearing: -17.6,
         antialias: true,
+        scrollZoom: false,
       });
 
       mapRef.current = map;
 
+      // Click-to-enable scroll zoom
+      const container = mapContainer.current!;
+      const handleMapClick = () => {
+        if (!mapInteractive) {
+          map.scrollZoom.enable();
+          setMapInteractive(true);
+        }
+      };
+      container.addEventListener('click', handleMapClick);
+
+      // Disable scroll zoom when mouse leaves
+      const handleMouseLeave = () => {
+        map.scrollZoom.disable();
+        setMapInteractive(false);
+      };
+      container.addEventListener('mouseleave', handleMouseLeave);
+
       map.on('load', () => {
-        // 3D building extrusions
+        // ── 3D building extrusions from composite source ──
         const layers = map.getStyle().layers;
         const labelLayerId = layers?.find(
           (layer) => layer.type === 'symbol' && layer.layout?.['text-field']
@@ -57,72 +100,211 @@ export default function MapHero({ projects }: MapHeroProps) {
             type: 'fill-extrusion',
             minzoom: 12,
             paint: {
-              'fill-extrusion-color': '#1a1a3e',
+              'fill-extrusion-color': [
+                'interpolate', ['linear'], ['get', 'height'],
+                0, '#16181e',
+                100, '#1e2030',
+                200, '#2a2d42',
+                400, '#353850',
+              ],
               'fill-extrusion-height': ['get', 'height'],
               'fill-extrusion-base': ['get', 'min_height'],
-              'fill-extrusion-opacity': 0.6,
+              'fill-extrusion-opacity': 0.7,
             },
           },
           labelLayerId
         );
 
-        // Add project markers
-        projects.forEach((project) => {
-          if (!project.latitude || !project.longitude) return;
+        // ── GeoJSON source for project columns ──
+        const columnFeatures = projects
+          .filter((p) => p.latitude && p.longitude)
+          .map((project) => ({
+            type: 'Feature' as const,
+            properties: {
+              id: project.id,
+              slug: project.slug,
+              name: project.name,
+              status: project.status,
+              color: getStatusColorHex(project.status),
+              floors: project.floors || 20,
+              height: (project.floors || 20) * 3.5,
+              glowHeight: (project.floors || 20) * 3.8,
+            },
+            geometry: {
+              type: 'Polygon' as const,
+              coordinates: [createCirclePoly(project.longitude, project.latitude, 15)],
+            },
+          }));
 
-          const color = getMarkerColor(project.status);
+        const dotFeatures = projects
+          .filter((p) => p.latitude && p.longitude)
+          .map((project) => ({
+            type: 'Feature' as const,
+            properties: {
+              id: project.id,
+              slug: project.slug,
+              name: project.name,
+              status: project.status,
+              color: getStatusColorHex(project.status),
+            },
+            geometry: {
+              type: 'Point' as const,
+              coordinates: [project.longitude, project.latitude],
+            },
+          }));
 
-          const markerEl = document.createElement('div');
-          markerEl.className = 'project-marker';
-          markerEl.style.cssText = `
-            width: 16px;
-            height: 16px;
-            background: ${color};
-            border: 2px solid rgba(255,255,255,0.8);
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 0 12px ${color}80, 0 0 24px ${color}40;
-            transition: transform 0.2s;
-          `;
+        map.addSource('project-columns', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: columnFeatures },
+        });
 
-          // Beam effect
-          const beam = document.createElement('div');
-          beam.style.cssText = `
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(to top, ${color}, transparent);
-            pointer-events: none;
-          `;
-          markerEl.appendChild(beam);
+        map.addSource('project-dots', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: dotFeatures },
+        });
 
-          markerEl.addEventListener('mouseenter', () => {
-            markerEl.style.transform = 'scale(1.3)';
-          });
-          markerEl.addEventListener('mouseleave', () => {
-            markerEl.style.transform = 'scale(1)';
-          });
-          markerEl.addEventListener('click', () => {
+        // ── Column glow (outer, transparent) ──
+        map.addLayer({
+          id: 'column-glow',
+          type: 'fill-extrusion',
+          source: 'project-columns',
+          paint: {
+            'fill-extrusion-color': ['get', 'color'],
+            'fill-extrusion-height': ['get', 'glowHeight'],
+            'fill-extrusion-base': 0,
+            'fill-extrusion-opacity': 0.15,
+          },
+        });
+
+        // ── Column markers (main) ──
+        map.addLayer({
+          id: 'column-markers',
+          type: 'fill-extrusion',
+          source: 'project-columns',
+          paint: {
+            'fill-extrusion-color': ['get', 'color'],
+            'fill-extrusion-height': ['get', 'height'],
+            'fill-extrusion-base': 0,
+            'fill-extrusion-opacity': 0.85,
+          },
+        });
+
+        // ── Ground glow dots ──
+        map.addLayer({
+          id: 'glow-dots',
+          type: 'circle',
+          source: 'project-dots',
+          paint: {
+            'circle-color': ['get', 'color'],
+            'circle-radius': [
+              'interpolate', ['linear'], ['zoom'],
+              10, 3,
+              14, 7,
+              18, 14,
+            ],
+            'circle-blur': 1,
+            'circle-opacity': 0.6,
+          },
+        });
+
+        // ── Solid center dots ──
+        map.addLayer({
+          id: 'center-dots',
+          type: 'circle',
+          source: 'project-dots',
+          paint: {
+            'circle-color': ['get', 'color'],
+            'circle-radius': [
+              'interpolate', ['linear'], ['zoom'],
+              10, 2,
+              14, 4,
+              18, 7,
+            ],
+            'circle-blur': 0,
+            'circle-opacity': 1,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': 'rgba(255,255,255,0.6)',
+          },
+        });
+
+        // ── Hover: change cursor, highlight ──
+        map.on('mouseenter', 'column-markers', () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'column-markers', () => {
+          map.getCanvas().style.cursor = '';
+        });
+        map.on('mouseenter', 'center-dots', () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'center-dots', () => {
+          map.getCanvas().style.cursor = '';
+        });
+
+        // ── Click: show property card ──
+        const handleLayerClick = (e: mapboxgl.MapLayerMouseEvent) => {
+          const feature = e.features?.[0];
+          if (!feature) return;
+          const slug = feature.properties?.slug;
+          const project = projects.find((p) => p.slug === slug);
+          if (project) {
             handleMarkerClick(project);
-          });
+            map.flyTo({
+              center: [project.longitude, project.latitude],
+              zoom: 15,
+              pitch: 55,
+              duration: 800,
+            });
+          }
+        };
 
-          new mapboxgl.default.Marker({ element: markerEl })
-            .setLngLat([project.longitude, project.latitude])
+        map.on('click', 'column-markers', handleLayerClick);
+        map.on('click', 'center-dots', handleLayerClick);
+
+        // ── Tooltip on hover ──
+        const popup = new mapboxgl.default.Popup({
+          closeButton: false,
+          closeOnClick: false,
+          offset: 10,
+          className: 'map-tooltip',
+        });
+
+        map.on('mousemove', 'center-dots', (e) => {
+          const feature = e.features?.[0];
+          if (!feature) return;
+          const props = feature.properties;
+          const coords = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
+          const project = projects.find((p) => p.slug === props?.slug);
+          if (!project) return;
+
+          popup
+            .setLngLat(coords)
+            .setHTML(`
+              <div style="background:#1a1a2e;color:white;padding:8px 12px;border-radius:8px;font-size:12px;border:1px solid rgba(255,255,255,0.1);min-width:140px;">
+                <div style="font-weight:600;margin-bottom:2px;">${project.name}</div>
+                <div style="color:rgba(255,255,255,0.6);font-size:10px;">${project.neighborhood} · ${project.floors || '?'}F</div>
+                <div style="color:${getStatusColorHex(project.status)};font-weight:600;margin-top:4px;">From $${project.priceMin ? (project.priceMin / 1000).toFixed(0) + 'K' : 'TBA'}</div>
+              </div>
+            `)
             .addTo(map);
         });
 
-        // map loaded
+        map.on('mouseleave', 'center-dots', () => {
+          popup.remove();
+        });
       });
+
+      return () => {
+        container.removeEventListener('click', handleMapClick);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      };
     });
 
     return () => {
       mapRef.current?.remove();
       mapRef.current = null;
     };
-  }, [projects, handleMarkerClick]);
+  }, [projects, handleMarkerClick, mapInteractive]);
 
   const projectCount = projects.length;
   const neighborhoodCount = new Set(projects.map((p) => p.neighborhood)).size;
@@ -131,6 +313,12 @@ export default function MapHero({ projects }: MapHeroProps) {
     <div className="relative" style={{ height: '75vh' }}>
       {/* Map */}
       <div ref={mapContainer} className="absolute inset-0" />
+
+      {/* Click-to-zoom hint */}
+      {!mapInteractive && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none opacity-0 transition-opacity duration-500" id="scroll-hint">
+        </div>
+      )}
 
       {/* Fallback if no mapbox token */}
       {!process.env.NEXT_PUBLIC_MAPBOX_TOKEN && (

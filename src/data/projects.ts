@@ -770,7 +770,7 @@ export const projects: Project[] = [
     ],
     amenities: ['24/7 Concierge', 'Indoor Pool', 'Private Dining', 'Wine Cellar', 'Spa', 'Screening Room', 'Valet Parking', 'Golf Simulator'],
     features: ['Cecconi Simone interiors', 'Gaggenau appliances', 'Marble bathrooms', 'Custom millwork', 'Heated floors'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1486325212014-69484e15238d?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1464938050520-ef2571b65150?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
       'https://images.unsplash.com/photo-1560448204771-d5118743eef2?w=800&q=80',
@@ -813,7 +813,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Concierge', 'Pool', 'Hot Tub', 'Fitness Centre', 'Private Library', 'Guest Suites', 'Rooftop Lounge'],
     features: ['Yorkville address', 'Steps to Bay subway', 'Floor-to-ceiling windows', 'Stone countertops', 'Custom cabinetry'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1486325212014-69484e15238d?w=800&q=80',
       'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
@@ -856,7 +856,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Private Elevator Access', '24/7 Concierge', 'Wine Cellar', 'Private Dining', 'Fitness & Spa', 'Valet Parking'],
     features: ['Foster + Partners design', 'Only 77 residences', 'Bespoke interiors', 'Molteni & C kitchens', 'Radiant floor heating'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1560448204771-d5118743eef2?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1560448204771-d5118743eef2?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -901,7 +901,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Club Lounge', 'Whisky Bar', 'Billiards Room', 'Fitness Centre', 'Pool', 'Children\'s Playroom', 'Rooftop Terrace'],
     features: ['Private club amenities', 'Steps to Eglinton LRT', 'Premium Menkes finishes', 'Open-concept layouts'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1462396881884-de2c07cb95ed?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80',
       'https://images.unsplash.com/photo-1556909172-8c2f3e8f1c0a?w=800&q=80',
@@ -989,7 +989,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Rooftop Pool', 'Co-Working Space', 'Fitness Centre', 'Social Lounge', 'Dog Run', 'Bike Workshop'],
     features: ['Direct LRT access', 'Steps to Yonge subway', 'Efficient floor plans', 'Modern finishes'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1462396881884-de2c07cb95ed?w=800&q=80',
       'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
@@ -1032,7 +1032,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Outdoor Terrace', 'BBQ Area', 'Fitness Centre', 'Party Room', 'Children\'s Playroom', 'Guest Suite'],
     features: ['Eglinton LRT at doorstep', 'Family-sized layouts', 'Stone countertops', 'Wide-plank flooring'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1460574283810-0d066ae2aded?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
       'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
@@ -1075,7 +1075,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Gym', 'Co-Working Hub', 'Party Room', 'Rooftop Garden', 'Bike Storage'],
     features: ['Dual subway and LRT access', 'Mixed-use master plan', 'Modern finishes', 'Smart home ready'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1496568524562-8252b81c9abd?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1462396881884-de2c07cb95ed?w=800&q=80',
       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
@@ -1120,7 +1120,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Gym', 'Sauna', 'Party Room', 'Theatre Room', 'Outdoor BBQ Area'],
     features: ['Direct subway access', 'Twin tower design', 'Premium finishes', 'Panoramic views'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
       'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
@@ -1163,7 +1163,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Pool', 'Party Room', 'Outdoor Terrace', 'Yoga Studio', 'Children\'s Room'],
     features: ['Finch subway access', 'Tridel quality', 'Energy-efficient systems', 'Modern layouts'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -1206,7 +1206,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Hot Tub', 'Fitness Centre', 'Party Room', 'Theatre', 'Guest Suites', 'BBQ Terrace'],
     features: ['Connected community', 'Menkes quality', 'Retail at grade', 'Yonge Street address'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
       'https://images.unsplash.com/photo-1560448204771-d5118743eef2?w=800&q=80',
@@ -1339,7 +1339,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Fitness Centre', 'Outdoor Park', 'Dog Run', 'Party Room', 'Library Lounge'],
     features: ['Direct subway access', 'Tridel Built Green', 'Master-planned community', 'Central park'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1497366672149-e5e4b4d34eb3?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
       'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
@@ -1382,7 +1382,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Co-Working Space', 'Rooftop Terrace', 'Social Lounge', 'Bike Storage'],
     features: ['Multi-modal transit hub', 'Affordable entry point', 'CentreCourt efficiency', 'Modern finishes'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80',
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
@@ -1427,7 +1427,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Rooftop Terrace', 'Fitness Room', 'Lounge', 'Bike Storage', 'Pet Wash'],
     features: ['Queen East address', 'Mid-rise scale', 'Street-level retail', 'Leslieville charm'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1460317442991-0ef2a4e97a60?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1497366754888-956c1bb15837?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -1515,7 +1515,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Lakeside Terrace', 'Pool', 'Fitness Centre', 'Party Room', 'Canoe/Kayak Storage', 'BBQ Area'],
     features: ['3XN-designed facade', 'Direct lake views', 'Waterfront trail access', 'Tridel sustainability'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1476842634003-7dcca8f832de?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -1558,7 +1558,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Lakefront Terrace', 'Indoor Pool', 'Sauna', 'Fitness Centre', 'Party Room', 'Canoe Launch'],
     features: ['Queens Quay address', 'Lakefront promenade', 'Floor-to-ceiling glass', 'Premium finishes'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1524813686514-a57563d77965?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
       'https://images.unsplash.com/photo-1486325212014-69484e15238d?w=800&q=80',
@@ -1601,7 +1601,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Community Centre', 'Waterfront Park', 'Pool', 'Fitness Centre', 'Co-Working Space', 'Children\'s Area', 'Urban Farm'],
     features: ['Adjaye Associates design', 'Mass timber construction', 'Waterfront park', 'Inclusive community'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
@@ -1646,7 +1646,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Gym', 'Party Room', 'Rooftop Terrace', 'Dog Park', 'Guest Suites'],
     features: ['Master-planned community', 'Walk to Rogers Centre', 'Updated suite designs', 'Park-side location'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1482235225574-c37692835cf3?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
       'https://images.unsplash.com/photo-1556909172-8c2f3e8f1c0a?w=800&q=80',
@@ -1689,7 +1689,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Pool & Hot Tub', 'Gym', 'Sauna', 'Theatre Room', 'Party Room', 'Rooftop Lounge', 'BBQ Terrace'],
     features: ['Upgraded CityPlace finishes', 'Larger balconies', 'Enhanced sound insulation', 'Premium appliance package'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1498036882173-b7baba4a3ee8?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -1734,7 +1734,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Outdoor Pool', 'Party Room', 'Dog Run', 'BBQ Terrace', 'Library'],
     features: ['Heritage park views', 'Bentway access', 'Final phase premium', 'Modern open layouts'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
       'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
@@ -1777,7 +1777,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Green Roof Terrace', 'Fitness Centre', 'Community Gallery', 'Party Room', 'Bike Workshop', 'Dog Wash'],
     features: ['Park-front living', 'Green building design', 'Public art integration', 'Daniels community standards'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1481026469334-187dcf3a22d8?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
@@ -1822,7 +1822,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Fitness Centre', 'Rooftop Terrace', 'Party Room', 'BBQ Area', 'Co-Working Lounge'],
     features: ['Master-planned community', 'Near Square One', 'LRT connectivity', 'Competitive pricing'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
@@ -1865,7 +1865,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Gym', 'Co-Working Space', 'Rooftop Pool', 'Party Room', 'Dog Run'],
     features: ['Transit-oriented design', 'Competitive pricing', 'Modern layouts', 'Walk to Square One'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
@@ -1908,7 +1908,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Lakefront Terrace', 'Fitness Room', 'Party Room', 'Bike Storage', 'BBQ Area'],
     features: ['Lakefront village location', 'Steps to GO Transit', 'Boutique mid-rise', 'Lake Ontario views'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -1953,7 +1953,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Indoor Pool', 'Fitness Centre', 'Rooftop Terrace', 'Party Room', 'Co-Working Space', 'Guest Suite'],
     features: ['Direct subway access', 'Vaughan\'s new downtown', 'Menkes quality', 'Competitive pricing'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
@@ -1996,7 +1996,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Outdoor Pool', 'Fitness Centre', 'Children\'s Playroom', 'Party Room', 'BBQ Terrace', 'Homework Room'],
     features: ['Family-oriented layouts', 'Near VMC subway', 'Competitive pricing', 'Emerging downtown'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1495433324511-bf8e92934d90?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&q=80',
       'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
@@ -2041,7 +2041,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Pool', 'Party Room', 'Rooftop Terrace', 'Kids\' Room', 'Study Lounge'],
     features: ['Future Yonge subway access', 'Great Gulf design', 'Premium finishes', 'Yonge Street address'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
@@ -2084,7 +2084,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Visitor Parking', 'Communal Garden', 'Playground', 'Walking Trails'],
     features: ['Private entrances', 'Attached garages', 'Family-sized layouts', 'Mattamy quality'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1492889971304-ac16ab4a4a5a?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
       'https://images.unsplash.com/photo-1556909172-8c2f3e8f1c0a?w=800&q=80',
@@ -2129,7 +2129,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Pool', 'Party Room', 'Co-Working Space', 'BBQ Terrace', 'Bike Room'],
     features: ['Markham Centre location', 'Tridel quality', 'Near tech corridor', 'Transit-oriented'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1475855581690-80accde3ae2b?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=800&q=80',
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
@@ -2172,7 +2172,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Garden Terrace', 'Fitness Room', 'Lounge', 'Bike Storage', 'Visitor Parking'],
     features: ['Heritage village location', 'Boutique scale', 'Generous suite sizes', 'Minto craftsmanship'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
       'https://images.unsplash.com/photo-1556909172-8c2f3e8f1c0a?w=800&q=80',
@@ -2217,7 +2217,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Fitness Centre', 'Lounge', 'Rooftop Terrace', 'Guest Suite', 'Bike Storage'],
     features: ['Oakville address', 'Steps to downtown', 'Mid-rise elegance', 'Daniels quality'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1495774539583-885e02cca8c2?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
       'https://images.unsplash.com/photo-1560448204771-d5118743eef2?w=800&q=80',
@@ -2260,7 +2260,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Lakefront Terrace', 'Fitness Room', 'Party Room', 'BBQ Area', 'Bike Storage'],
     features: ['Lakefront location', 'Bronte Village charm', 'Oversized suites', 'Private terraces'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1496568523562-81b6dd91a7af?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -2305,7 +2305,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Harbour Terrace', 'Fitness Centre', 'Party Room', 'Canoe Launch', 'Rooftop BBQ', 'Bike Storage'],
     features: ['Waterfront location', 'Harbour views', 'Affordable entry', 'GO Transit access'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1489370321024-e0a8b0701950?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
       'https://images.unsplash.com/photo-1517090504332-e627240fc10b?w=800&q=80',
@@ -2348,7 +2348,7 @@ export const projects: Project[] = [
     ],
     amenities: ['Ground-Floor Gallery', 'Rooftop Terrace', 'Gym', 'Lounge', 'Bike Storage'],
     features: ['Hamilton arts district', 'Loft-style design', 'Most affordable entry', 'Cultural location'],
-    mainImageUrl: 'https://images.unsplash.com/photo-1460317442991-0ef2a4e97a60?w=800&q=80',
+    mainImageUrl: 'https://images.unsplash.com/photo-1506146395679-c8bfd929b8a3?w=800&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
       'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
