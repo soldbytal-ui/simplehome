@@ -13,15 +13,18 @@ export default function BlogPage() {
   const [featured, ...rest] = blogPosts;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs items={[{ label: 'Blog' }]} />
 
-      <h1 className="text-3xl font-bold text-primary mb-3">Market Insights & Guides</h1>
-      <p className="text-muted mb-10">Expert analysis of the Toronto and GTA real estate market.</p>
+      <div className="mt-8 mb-14">
+        <p className="text-label uppercase text-copper mb-3">Journal</p>
+        <h1 className="font-serif text-section-sm md:text-section text-primary mb-4">Market Insights & Guides</h1>
+        <p className="text-muted font-light">Expert analysis of the Toronto and GTA real estate market.</p>
+      </div>
 
       {/* Featured post */}
-      <Link href={`/blog/${featured.slug}`} className="group block mb-12">
-        <div className="grid md:grid-cols-2 gap-6 bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all">
+      <Link href={`/blog/${featured.slug}`} className="group block mb-16">
+        <div className="grid md:grid-cols-2 gap-0 border border-black/[0.06] overflow-hidden">
           <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden">
             <Image
               src={featured.imageUrl}
@@ -32,51 +35,41 @@ export default function BlogPage() {
               priority
             />
           </div>
-          <div className="p-6 flex flex-col justify-center">
-            <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium w-fit">
+          <div className="p-8 md:p-10 flex flex-col justify-center">
+            <span className="text-label uppercase text-copper">
               {featured.category}
             </span>
-            <h2 className="text-2xl font-bold text-primary mt-3 group-hover:text-accent transition-colors">
+            <h2 className="font-serif text-section-sm text-primary mt-4 group-hover:text-copper transition-colors">
               {featured.title}
             </h2>
-            <p className="text-muted mt-3 leading-relaxed">{featured.excerpt}</p>
-            <div className="flex items-center gap-4 mt-4 text-sm text-muted">
+            <div className="mt-4 text-sm text-muted font-light">
               <span>{new Date(featured.publishedAt).toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-              <span>{featured.readingTime} min read</span>
             </div>
           </div>
         </div>
       </Link>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {rest.map((post) => (
           <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
-            <div className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <Image
-                  src={post.imageUrl}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-accent text-white px-2.5 py-1 rounded-full text-xs font-medium">
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-primary group-hover:text-accent transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-muted mt-2 line-clamp-2">{post.excerpt}</p>
-                <div className="flex items-center justify-between mt-3 text-xs text-muted">
-                  <span>{new Date(post.publishedAt).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                  <span>{post.readingTime} min read</span>
-                </div>
-              </div>
+            <div className="relative aspect-[16/9] overflow-hidden mb-4">
+              <Image
+                src={post.imageUrl}
+                alt={post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <span className="text-label uppercase text-copper">
+              {post.category}
+            </span>
+            <h3 className="font-serif text-xl text-primary mt-2 group-hover:text-copper transition-colors line-clamp-2">
+              {post.title}
+            </h3>
+            <div className="mt-3 text-xs text-muted font-light">
+              <span>{new Date(post.publishedAt).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
             </div>
           </Link>
         ))}

@@ -18,9 +18,9 @@ export default function PortfolioPage() {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'for_sale': return 'bg-secondary text-white';
-      case 'sold': return 'bg-red-400/80 text-white';
-      case 'under_contract': return 'bg-orange-500 text-white';
+      case 'for_sale': return 'bg-primary text-white';
+      case 'sold': return 'bg-copper text-white';
+      case 'under_contract': return 'bg-primary/60 text-white';
       default: return 'bg-muted text-white';
     }
   };
@@ -35,22 +35,25 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs items={[{ label: 'Portfolio' }]} />
 
-      <h1 className="text-3xl font-bold text-primary mb-3">Our Portfolio</h1>
-      <p className="text-muted mb-8 max-w-2xl">
-        A curated collection of notable properties — from exclusive pre-construction opportunities
-        to successfully closed transactions across the Greater Toronto Area.
-      </p>
+      <div className="mt-8 mb-14">
+        <p className="text-label uppercase text-copper mb-3">Collection</p>
+        <h1 className="font-serif text-section-sm md:text-section text-primary mb-4">Our Portfolio</h1>
+        <p className="text-muted font-light max-w-2xl">
+          A curated collection of notable properties — from exclusive pre-construction opportunities
+          to successfully closed transactions across the Greater Toronto Area.
+        </p>
+      </div>
 
       {/* Tabs */}
-      <div className="flex gap-4 mb-8 border-b border-black/[0.08]">
+      <div className="flex gap-6 mb-12 border-b border-black/[0.06]">
         <button
           onClick={() => setTab('for_sale')}
-          className={`pb-3 px-1 text-sm font-medium border-b-2 transition-colors ${
+          className={`pb-3 px-1 text-nav uppercase border-b-2 transition-colors ${
             tab === 'for_sale'
-              ? 'border-accent text-accent'
+              ? 'border-primary text-primary'
               : 'border-transparent text-muted hover:text-primary'
           }`}
         >
@@ -58,9 +61,9 @@ export default function PortfolioPage() {
         </button>
         <button
           onClick={() => setTab('sold')}
-          className={`pb-3 px-1 text-sm font-medium border-b-2 transition-colors ${
+          className={`pb-3 px-1 text-nav uppercase border-b-2 transition-colors ${
             tab === 'sold'
-              ? 'border-accent text-accent'
+              ? 'border-primary text-primary'
               : 'border-transparent text-muted hover:text-primary'
           }`}
         >
@@ -76,7 +79,7 @@ export default function PortfolioPage() {
             href={`/portfolio/${item.slug}`}
             className="group block"
           >
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
+            <div className="relative aspect-[4/3] overflow-hidden border border-black/[0.06]">
               <Image
                 src={item.imageUrl}
                 alt={item.name}
@@ -89,24 +92,24 @@ export default function PortfolioPage() {
 
               {/* Status badge */}
               <div className="absolute top-3 left-3">
-                <span className={`${getStatusBadge(item.status)} px-2.5 py-1 rounded-full text-xs font-medium`}>
+                <span className={`${getStatusBadge(item.status)} px-3 py-1 text-meta uppercase`}>
                   {getStatusLabel(item.status)}
                 </span>
               </div>
 
               {/* Neighborhood tag */}
               <div className="absolute top-3 right-3">
-                <span className="bg-white/20 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-xs">
+                <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 text-meta uppercase">
                   {item.neighborhood}
                 </span>
               </div>
 
               {/* Content overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-white font-semibold text-lg leading-tight">{item.name}</h3>
-                <p className="text-white/70 text-sm mt-1 italic line-clamp-1">{item.tagline}</p>
-                <div className="flex items-center justify-between mt-2">
-                  <span className="text-white font-semibold">
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-white font-serif text-xl leading-tight">{item.name}</h3>
+                <p className="text-white/70 text-sm mt-1 font-light line-clamp-1">{item.tagline}</p>
+                <div className="flex items-center justify-between mt-3">
+                  <span className="text-white font-serif">
                     {item.status === 'sold' && item.soldPrice
                       ? `Sold for ${formatPriceFull(item.soldPrice)}`
                       : item.originalPrice
@@ -114,7 +117,7 @@ export default function PortfolioPage() {
                         : 'Price on Request'}
                   </span>
                   {item.beds && (
-                    <span className="text-white/70 text-xs">
+                    <span className="text-white/70 text-xs font-light">
                       {item.beds} BD &middot; {item.baths} BA
                       {item.sqft ? ` · ${item.sqft.toLocaleString()} sqft` : ''}
                     </span>
@@ -127,7 +130,7 @@ export default function PortfolioPage() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-16 text-muted">
+        <div className="text-center py-24 text-muted font-light">
           No properties in this category yet.
         </div>
       )}

@@ -46,7 +46,7 @@ export default function NeighborhoodPage({ params }: Props) {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs
         items={[
           { label: 'Pre-Construction', href: '/pre-construction' },
@@ -54,49 +54,51 @@ export default function NeighborhoodPage({ params }: Props) {
         ]}
       />
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-12 mt-8">
         <div className="lg:col-span-2">
-          <h1 className="text-3xl font-bold text-primary">
+          <p className="text-label uppercase text-copper mb-3">Neighborhood</p>
+          <h1 className="font-serif text-section-sm md:text-section text-primary">
             New Pre-Construction Condos in {hood.name}
           </h1>
-          <p className="text-muted mt-2">
+          <p className="text-muted font-light mt-3">
             {areaProjects.length} projects &middot; {priceRange}
           </p>
 
           {/* Description */}
-          <div className="mt-6 text-muted leading-relaxed">
+          <div className="mt-8 text-muted font-light leading-relaxed">
             <p>{hood.description}</p>
           </div>
 
           {/* Projects grid */}
-          <div className="mt-8 grid md:grid-cols-2 gap-6">
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
             {areaProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
 
           {areaProjects.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-muted">No projects listed in {hood.name} yet. Check back soon.</p>
+            <div className="text-center py-24">
+              <p className="text-muted font-light">No projects listed in {hood.name} yet. Check back soon.</p>
             </div>
           )}
 
           {/* Top Developers */}
           {topDevs.length > 0 && (
-            <section className="mt-16">
-              <h2 className="text-2xl font-bold text-primary mb-6">Top Developers in {hood.name}</h2>
+            <section className="mt-24">
+              <p className="text-label uppercase text-copper mb-3">Builders</p>
+              <h2 className="font-serif text-section-sm text-primary mb-14">Top Developers in {hood.name}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {topDevs.map((dev) => (
                   <Link
                     key={dev.id}
                     href={`/developers/${dev.slug}`}
-                    className="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all text-center"
+                    className="border border-black/[0.06] p-5 hover:border-copper/30 transition-colors text-center"
                   >
-                    <div className="w-12 h-12 bg-surface2 rounded-full mx-auto flex items-center justify-center mb-2">
-                      <span className="text-lg font-bold text-accent">{dev.name.charAt(0)}</span>
+                    <div className="w-12 h-12 border border-black/[0.06] mx-auto flex items-center justify-center mb-3">
+                      <span className="text-lg font-serif text-copper">{dev.name.charAt(0)}</span>
                     </div>
-                    <h3 className="font-medium text-primary text-sm">{dev.name}</h3>
-                    <p className="text-xs text-muted mt-1">{dev.projectCount} projects</p>
+                    <h3 className="font-serif text-primary text-sm">{dev.name}</h3>
+                    <p className="text-xs text-muted font-light mt-1">{dev.projectCount} projects</p>
                   </Link>
                 ))}
               </div>
@@ -104,7 +106,7 @@ export default function NeighborhoodPage({ params }: Props) {
           )}
 
           {/* FAQ */}
-          <div className="mt-16">
+          <div className="mt-24">
             <FAQ items={faqItems} title={`${hood.name} Pre-Construction FAQ`} />
           </div>
         </div>

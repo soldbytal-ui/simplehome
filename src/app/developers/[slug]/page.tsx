@@ -37,7 +37,7 @@ export default function DeveloperPage({ params }: Props) {
   const otherDevelopers = developers.filter((d) => d.id !== dev.id).slice(0, 6);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs
         items={[
           { label: 'Developers', href: '/developers' },
@@ -45,16 +45,16 @@ export default function DeveloperPage({ params }: Props) {
         ]}
       />
 
-      <div className="flex items-start gap-6 mb-8">
-        <div className="w-20 h-20 bg-surface2 rounded-2xl flex items-center justify-center flex-shrink-0">
-          <span className="text-3xl font-bold text-accent">{dev.name.charAt(0)}</span>
+      <div className="flex items-start gap-6 mt-8 mb-14">
+        <div className="w-20 h-20 border border-black/[0.06] flex items-center justify-center flex-shrink-0">
+          <span className="text-3xl font-serif text-copper">{dev.name.charAt(0)}</span>
         </div>
         <div>
-          <h1 className="text-3xl font-bold text-primary">{dev.name}</h1>
-          <div className="flex items-center gap-4 mt-2 text-sm text-muted">
+          <h1 className="font-serif text-section-sm md:text-section text-primary">{dev.name}</h1>
+          <div className="flex items-center gap-4 mt-2 text-sm text-muted font-light">
             {dev.headquarters && (
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5" />
+                <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
                 {dev.headquarters}
               </span>
             )}
@@ -65,9 +65,9 @@ export default function DeveloperPage({ params }: Props) {
               href={dev.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-accent mt-2 hover:underline"
+              className="inline-flex items-center gap-1 text-sm text-copper mt-2 hover:text-primary transition-colors"
             >
-              <Globe className="w-3.5 h-3.5" />
+              <Globe className="w-3.5 h-3.5" strokeWidth={1.5} />
               Visit Website
             </a>
           )}
@@ -75,32 +75,33 @@ export default function DeveloperPage({ params }: Props) {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
-        <div className="bg-surface rounded-xl p-4">
-          <div className="text-2xl font-bold text-accent">{devProjects.length}</div>
-          <div className="text-xs text-muted mt-1">Projects</div>
+      <div className="grid grid-cols-3 gap-4 mb-14">
+        <div className="border border-black/[0.06] p-5">
+          <div className="text-2xl font-serif text-copper">{devProjects.length}</div>
+          <div className="text-meta uppercase text-muted mt-1">Projects</div>
         </div>
-        <div className="bg-surface rounded-xl p-4">
-          <div className="text-2xl font-bold text-accent">{neighborhoodList.length}</div>
-          <div className="text-xs text-muted mt-1">Neighborhoods</div>
+        <div className="border border-black/[0.06] p-5">
+          <div className="text-2xl font-serif text-copper">{neighborhoodList.length}</div>
+          <div className="text-meta uppercase text-muted mt-1">Neighborhoods</div>
         </div>
-        <div className="bg-surface rounded-xl p-4">
-          <div className="text-2xl font-bold text-accent">
+        <div className="border border-black/[0.06] p-5">
+          <div className="text-2xl font-serif text-copper">
             {priceMin < Infinity ? `$${(priceMin / 1000).toFixed(0)}K+` : 'TBA'}
           </div>
-          <div className="text-xs text-muted mt-1">Starting From</div>
+          <div className="text-meta uppercase text-muted mt-1">Starting From</div>
         </div>
       </div>
 
       {/* Bio */}
-      <div className="text-muted leading-relaxed mb-10 max-w-3xl">
+      <div className="text-muted font-light leading-relaxed mb-14 max-w-3xl">
         <p>{dev.bio}</p>
       </div>
 
       {/* Projects */}
       {devProjects.length > 0 && (
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-6">
+        <section className="py-24 border-t border-black/[0.06]">
+          <p className="text-label uppercase text-copper mb-3">Portfolio</p>
+          <h2 className="font-serif text-section-sm text-primary mb-14">
             Projects by {dev.name}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -112,19 +113,20 @@ export default function DeveloperPage({ params }: Props) {
       )}
 
       {/* Other Developers */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-primary mb-6">Other Developers</h2>
+      <section className="py-24 border-t border-black/[0.06]">
+        <p className="text-label uppercase text-copper mb-3">Explore</p>
+        <h2 className="font-serif text-section-sm text-primary mb-14">Other Developers</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {otherDevelopers.map((d) => (
             <Link
               key={d.id}
               href={`/developers/${d.slug}`}
-              className="bg-white rounded-xl p-4 text-center shadow-card hover:shadow-card-hover transition-all"
+              className="border border-black/[0.06] p-4 text-center hover:border-copper/30 transition-colors"
             >
-              <div className="w-12 h-12 bg-surface2 rounded-full mx-auto flex items-center justify-center mb-2">
-                <span className="text-lg font-bold text-accent">{d.name.charAt(0)}</span>
+              <div className="w-12 h-12 border border-black/[0.06] mx-auto flex items-center justify-center mb-2">
+                <span className="text-lg font-serif text-copper">{d.name.charAt(0)}</span>
               </div>
-              <h3 className="font-medium text-primary text-xs">{d.name}</h3>
+              <h3 className="font-serif text-primary text-xs">{d.name}</h3>
             </Link>
           ))}
         </div>

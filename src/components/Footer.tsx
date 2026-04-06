@@ -3,20 +3,19 @@ import Link from 'next/link';
 const neighborhoodLinks = [
   { name: 'Downtown Core', href: '/areas/downtown-core' },
   { name: 'King West', href: '/areas/king-west' },
-  { name: 'Liberty Village', href: '/areas/liberty-village' },
   { name: 'Yorkville', href: '/areas/yorkville' },
   { name: 'Midtown', href: '/areas/midtown' },
   { name: 'North York', href: '/areas/north-york' },
   { name: 'Mississauga', href: '/areas/mississauga' },
-  { name: 'Vaughan', href: '/areas/vaughan' },
 ];
 
-const resourceLinks = [
-  { name: 'Pre-Construction Guide', href: '/blog/guide-to-buying-pre-construction-in-ontario' },
-  { name: 'Market Forecast', href: '/blog/toronto-condo-market-forecast-2026-2030' },
-  { name: 'HST Rebate Guide', href: '/blog/hst-rebate-on-pre-construction-condos-explained' },
+const serviceLinks = [
+  { name: 'Pre-Construction', href: '/pre-construction' },
+  { name: 'Resale Listings', href: '/resale' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Downsize with Steve', href: '/downsize' },
+  { name: 'Market Insights', href: '/blog' },
   { name: 'All Developers', href: '/developers' },
-  { name: 'Blog', href: '/blog' },
 ];
 
 const companyLinks = [
@@ -28,31 +27,31 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-surface-dark text-white">
+      <div className="max-w-container mx-auto px-6 lg:px-10 py-20 lg:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-0.5 font-bold text-xl tracking-tight mb-4">
-              <span className="text-accent">SIMPLE</span>
-              <span className="text-white">HOME</span>
-              <span className="text-white/50">.CA</span>
+            <Link href="/" className="flex items-center gap-0.5 tracking-tight mb-6">
+              <span className="text-white font-semibold text-lg">SIMPLE</span>
+              <span className="text-white font-light text-lg">HOME</span>
+              <span className="text-white/40 font-light text-lg">.CA</span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed">
-              Toronto&apos;s premier pre-construction and resale real estate platform.
-              Connecting buyers with the best new developments across the GTA.
+            <p className="text-white/40 text-sm font-light leading-relaxed">
+              Toronto&apos;s premier destination for pre-construction developments
+              and luxury resale properties.
             </p>
           </div>
 
           {/* Neighborhoods */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/80">
+            <h3 className="text-label uppercase text-white/60 mb-5">
               Neighborhoods
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {neighborhoodLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm font-light text-white/40 hover:text-white transition-colors duration-300">
                     {link.name}
                   </Link>
                 </li>
@@ -60,15 +59,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Services */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/80">
-              Resources
+            <h3 className="text-label uppercase text-white/60 mb-5">
+              Services
             </h3>
-            <ul className="space-y-2">
-              {resourceLinks.map((link) => (
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm font-light text-white/40 hover:text-white transition-colors duration-300">
                     {link.name}
                   </Link>
                 </li>
@@ -78,13 +77,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white/80">
+            <h3 className="text-label uppercase text-white/60 mb-5">
               Company
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm font-light text-white/40 hover:text-white transition-colors duration-300">
                     {link.name}
                   </Link>
                 </li>
@@ -94,13 +93,13 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <p className="text-xs text-white/40 leading-relaxed max-w-4xl">
+        <div className="mt-16 pt-8 border-t border-white/[0.06]">
+          <p className="text-[11px] text-white/25 font-light leading-relaxed max-w-4xl">
             SimpleHome.ca is an informational platform that partners with licensed Ontario real estate professionals.
             We are not a licensed real estate brokerage. All pricing and project details are approximate and subject
             to change. Consult a licensed real estate professional before making any decisions.
           </p>
-          <p className="text-xs text-white/30 mt-4">
+          <p className="text-[11px] text-white/20 mt-4 font-light">
             &copy; {new Date().getFullYear()} SimpleHome.ca. All rights reserved.
           </p>
         </div>

@@ -6,44 +6,34 @@ import ChatWidget from '@/components/ChatWidget';
 
 export const metadata: Metadata = {
   title: {
-    default: 'SimpleHome.ca | Toronto Pre-Construction Condos & New Developments',
+    default: 'SimpleHome.ca | Toronto Pre-Construction & Luxury Real Estate',
     template: '%s | SimpleHome.ca',
   },
   description:
-    'Explore Toronto\'s best pre-construction condos and new developments. Browse 200+ projects across the GTA with pricing, floor plans, and expert insights.',
+    'Toronto\'s premier destination for pre-construction developments and luxury resale properties. Curated by the city\'s top real estate professionals.',
   keywords: [
     'Toronto pre-construction',
-    'Toronto condos',
+    'Toronto luxury real estate',
     'GTA new developments',
-    'pre-construction condos Toronto',
-    'new condos Toronto',
+    'Toronto condos',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_CA',
     url: 'https://simplehome.ca',
     siteName: 'SimpleHome.ca',
-    title: 'SimpleHome.ca | Toronto Pre-Construction Condos & New Developments',
+    title: 'SimpleHome.ca | Toronto Pre-Construction & Luxury Real Estate',
     description:
-      'Explore Toronto\'s best pre-construction condos and new developments across the GTA.',
+      'Toronto\'s premier destination for pre-construction developments and luxury resale properties.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SimpleHome.ca | Toronto Pre-Construction Condos',
+    title: 'SimpleHome.ca | Toronto Luxury Real Estate',
     description:
-      'Explore Toronto\'s best pre-construction condos and new developments across the GTA.',
+      'Toronto\'s premier destination for pre-construction and luxury resale properties.',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-  alternates: {
-    canonical: 'https://simplehome.ca',
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://simplehome.ca' },
 };
 
 export default function RootLayout({
@@ -63,7 +53,7 @@ export default function RootLayout({
               name: 'SimpleHome.ca',
               url: 'https://simplehome.ca',
               description:
-                "Toronto's premier pre-construction and resale real estate platform.",
+                "Toronto's premier pre-construction and luxury real estate platform.",
               areaServed: {
                 '@type': 'City',
                 name: 'Toronto',
@@ -73,9 +63,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased font-sans bg-background text-primary">
+      <body className="antialiased font-sans text-primary">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
         <ChatWidget />
       </body>

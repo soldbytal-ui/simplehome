@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
 
 interface FAQItem {
   question: string;
@@ -13,26 +12,25 @@ export default function FAQ({ items, title }: { items: FAQItem[]; title?: string
 
   return (
     <section>
-      {title && <h2 className="text-2xl font-bold text-primary mb-6">{title}</h2>}
-      <div className="space-y-3">
+      {title && (
+        <h2 className="font-serif text-section-sm text-primary mb-10">{title}</h2>
+      )}
+      <div className="divide-y divide-black/[0.06]">
         {items.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-xl border border-black/[0.08] overflow-hidden"
-          >
+          <div key={index}>
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full flex items-center justify-between px-5 py-4 text-left"
+              className="w-full flex items-center justify-between py-5 text-left group"
             >
-              <span className="font-medium text-primary text-sm pr-4">{item.question}</span>
-              <ChevronDown
-                className={`w-4 h-4 text-muted flex-shrink-0 transition-transform ${
-                  openIndex === index ? 'rotate-180' : ''
-                }`}
-              />
+              <span className="text-sm font-normal text-primary pr-8 group-hover:text-copper transition-colors duration-300">
+                {item.question}
+              </span>
+              <span className="text-muted text-lg flex-shrink-0 transition-transform duration-300">
+                {openIndex === index ? '\u00D7' : '+'}
+              </span>
             </button>
             {openIndex === index && (
-              <div className="px-5 pb-4 text-sm text-muted leading-relaxed">
+              <div className="pb-5 text-sm text-muted font-light leading-relaxed animate-fade-in">
                 {item.answer}
               </div>
             )}
@@ -40,7 +38,6 @@ export default function FAQ({ items, title }: { items: FAQItem[]; title?: string
         ))}
       </div>
 
-      {/* FAQ Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -50,10 +47,7 @@ export default function FAQ({ items, title }: { items: FAQItem[]; title?: string
             mainEntity: items.map((item) => ({
               '@type': 'Question',
               name: item.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: item.answer,
-              },
+              acceptedAnswer: { '@type': 'Answer', text: item.answer },
             })),
           }),
         }}

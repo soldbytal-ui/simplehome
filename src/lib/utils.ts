@@ -32,11 +32,11 @@ export function slugify(text: string): string {
 
 export function getStatusColor(status: string): string {
   switch (status) {
-    case 'pre-construction': return 'bg-accent text-white';
-    case 'under-construction': return 'bg-orange-500 text-white';
-    case 'completed': return 'bg-secondary text-white';
-    case 'selling': return 'bg-purple-500 text-white';
-    default: return 'bg-muted text-white';
+    case 'pre-construction': return 'bg-primary text-white';
+    case 'under-construction': return 'border border-copper text-copper';
+    case 'completed': return 'bg-muted/20 text-muted';
+    case 'selling': return 'bg-primary text-white';
+    default: return 'bg-muted/20 text-muted';
   }
 }
 

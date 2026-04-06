@@ -41,7 +41,7 @@ export default function BlogPostPage({ params }: Props) {
     .slice(0, 3);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs
         items={[
           { label: 'Blog', href: '/blog' },
@@ -49,29 +49,29 @@ export default function BlogPostPage({ params }: Props) {
         ]}
       />
 
-      <div className="grid lg:grid-cols-3 gap-10">
+      <div className="grid lg:grid-cols-3 gap-12 mt-8">
         {/* Article */}
         <article className="lg:col-span-2">
           <div className="mb-6">
-            <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">
+            <span className="text-label uppercase text-copper">
               {post.category}
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-4">
+          <h1 className="font-serif text-section-sm md:text-section text-primary leading-tight mb-6">
             {post.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-muted mb-8">
+          <div className="flex items-center gap-4 text-sm text-muted font-light mb-10">
             <span>SimpleHome.ca Editorial</span>
             <span>{new Date(post.publishedAt).toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
+              <Clock className="w-3.5 h-3.5" strokeWidth={1.5} />
               {post.readingTime} min read
             </span>
           </div>
 
-          <div className="relative aspect-[2/1] rounded-xl overflow-hidden mb-8">
+          <div className="relative aspect-[2/1] overflow-hidden mb-10">
             <Image
               src={post.imageUrl}
               alt={post.title}
@@ -81,19 +81,19 @@ export default function BlogPostPage({ params }: Props) {
             />
           </div>
 
-          <div className="prose prose-lg max-w-none prose-headings:text-primary prose-p:text-muted prose-a:text-accent prose-strong:text-primary">
+          <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary prose-p:text-muted prose-p:font-light prose-a:text-copper prose-strong:text-primary">
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
 
           {/* Author */}
-          <div className="mt-10 pt-8 border-t border-black/[0.08]">
+          <div className="mt-14 pt-10 border-t border-black/[0.06]">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">S</span>
+              <div className="w-12 h-12 border border-black/[0.06] flex items-center justify-center">
+                <span className="text-copper font-serif text-lg">S</span>
               </div>
               <div>
-                <div className="font-semibold text-primary">SimpleHome.ca Editorial</div>
-                <div className="text-sm text-muted">
+                <div className="font-serif text-primary">SimpleHome.ca Editorial</div>
+                <div className="text-sm text-muted font-light">
                   Expert insights on Toronto&apos;s pre-construction and real estate market.
                 </div>
               </div>
@@ -103,20 +103,20 @@ export default function BlogPostPage({ params }: Props) {
 
         {/* Sidebar */}
         <aside className="lg:col-span-1">
-          <div className="sticky top-24 space-y-6">
+          <div className="sticky top-24 space-y-8">
             <InquiryForm source="blog" />
 
             {/* Quick links */}
-            <div className="bg-surface rounded-xl p-5">
-              <h3 className="font-semibold text-primary text-sm mb-3">Quick Links</h3>
-              <div className="space-y-2">
-                <Link href="/pre-construction" className="block text-sm text-accent hover:underline">
+            <div className="border border-black/[0.06] p-6">
+              <h3 className="font-serif text-primary text-sm mb-4">Quick Links</h3>
+              <div className="space-y-3">
+                <Link href="/pre-construction" className="block text-sm text-copper hover:text-primary transition-colors">
                   Browse Pre-Construction
                 </Link>
-                <Link href="/developers" className="block text-sm text-accent hover:underline">
+                <Link href="/developers" className="block text-sm text-copper hover:text-primary transition-colors">
                   View Developers
                 </Link>
-                <Link href="/blog" className="block text-sm text-accent hover:underline">
+                <Link href="/blog" className="block text-sm text-copper hover:text-primary transition-colors">
                   All Articles
                 </Link>
               </div>
@@ -127,20 +127,17 @@ export default function BlogPostPage({ params }: Props) {
 
       {/* Related posts */}
       {relatedPosts.length > 0 && (
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold text-primary mb-6">Related Articles</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+        <section className="py-24 border-t border-black/[0.06] mt-14">
+          <p className="text-label uppercase text-copper mb-3">Continue Reading</p>
+          <h2 className="font-serif text-section-sm text-primary mb-14">Related Articles</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {relatedPosts.map((p) => (
               <Link key={p.id} href={`/blog/${p.slug}`} className="group block">
-                <div className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <Image src={p.imageUrl} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-primary group-hover:text-accent transition-colors text-sm line-clamp-2">{p.title}</h3>
-                    <div className="text-xs text-muted mt-2">{p.readingTime} min read</div>
-                  </div>
+                <div className="relative aspect-[16/9] overflow-hidden mb-4">
+                  <Image src={p.imageUrl} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
                 </div>
+                <h3 className="font-serif text-primary group-hover:text-copper transition-colors text-lg line-clamp-2">{p.title}</h3>
+                <div className="text-xs text-muted font-light mt-2">{p.readingTime} min read</div>
               </Link>
             ))}
           </div>

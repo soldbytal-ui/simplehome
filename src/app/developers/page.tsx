@@ -11,40 +11,43 @@ export const metadata: Metadata = {
 
 export default function DevelopersPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-container mx-auto px-6 lg:px-10 py-12">
       <Breadcrumbs items={[{ label: 'Developers' }]} />
 
-      <h1 className="text-3xl font-bold text-primary mb-3">Pre-Construction Developers</h1>
-      <p className="text-muted mb-10 max-w-2xl">
-        Toronto&apos;s leading developers shaping the city&apos;s skyline. From luxury high-rises to
-        transit-oriented communities, these builders are behind the GTA&apos;s most anticipated projects.
-      </p>
+      <div className="mt-8 mb-14">
+        <p className="text-label uppercase text-copper mb-3">Our Partners</p>
+        <h1 className="font-serif text-section-sm md:text-section text-primary mb-4">Pre-Construction Developers</h1>
+        <p className="text-muted font-light max-w-2xl">
+          Toronto&apos;s leading developers shaping the city&apos;s skyline. From luxury high-rises to
+          transit-oriented communities, these builders are behind the GTA&apos;s most anticipated projects.
+        </p>
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {developers.map((dev) => (
           <Link
             key={dev.id}
             href={`/developers/${dev.slug}`}
-            className="group bg-white rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1"
+            className="group border border-black/[0.06] p-6 hover:border-copper/30 transition-colors"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-surface2 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-xl font-bold text-accent">{dev.name.charAt(0)}</span>
+              <div className="w-14 h-14 border border-black/[0.06] flex items-center justify-center flex-shrink-0">
+                <span className="text-xl font-serif text-copper">{dev.name.charAt(0)}</span>
               </div>
               <div className="min-w-0">
-                <h2 className="font-semibold text-primary group-hover:text-accent transition-colors">
+                <h2 className="font-serif text-primary group-hover:text-copper transition-colors">
                   {dev.name}
                 </h2>
-                <p className="text-xs text-muted mt-0.5">{dev.projectCount} projects</p>
+                <p className="text-xs text-muted font-light mt-0.5">{dev.projectCount} projects</p>
                 {dev.headquarters && (
-                  <p className="text-xs text-muted">{dev.headquarters}</p>
+                  <p className="text-xs text-muted font-light">{dev.headquarters}</p>
                 )}
               </div>
             </div>
-            <p className="text-sm text-muted mt-3 line-clamp-3 leading-relaxed">{dev.bio}</p>
+            <p className="text-sm text-muted font-light mt-4 line-clamp-3 leading-relaxed">{dev.bio}</p>
             {dev.website && (
-              <div className="mt-3 flex items-center gap-1 text-xs text-accent">
-                <ExternalLink className="w-3 h-3" />
+              <div className="mt-4 flex items-center gap-1 text-xs text-copper">
+                <ExternalLink className="w-3 h-3" strokeWidth={1.5} />
                 <span>Website</span>
               </div>
             )}

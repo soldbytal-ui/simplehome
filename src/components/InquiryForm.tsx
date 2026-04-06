@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 interface InquiryFormProps {
   projectName?: string;
@@ -32,72 +32,79 @@ export default function InquiryForm({ projectName, projectId, source = 'website'
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-xl shadow-card p-6 text-center">
-        <CheckCircle className="w-12 h-12 text-secondary mx-auto mb-3" />
-        <h3 className="font-semibold text-primary text-lg">Thank You!</h3>
-        <p className="text-muted text-sm mt-2">
-          A licensed real estate professional will reach out to you shortly.
+      <div className="border border-black/[0.06] p-8 text-center">
+        <CheckCircle className="w-10 h-10 text-copper mx-auto mb-4" strokeWidth={1} />
+        <h3 className="font-serif text-xl text-primary">Thank You</h3>
+        <p className="text-sm text-muted font-light mt-2">
+          A licensed real estate professional will reach out shortly.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-card p-6">
-      <h3 className="font-semibold text-primary text-lg mb-1">
+    <div className="border border-black/[0.06] p-8">
+      <h3 className="font-serif text-xl text-primary mb-1">
         {projectName ? `Inquire About ${projectName}` : 'Get In Touch'}
       </h3>
-      <p className="text-muted text-sm mb-4">
+      <p className="text-sm text-muted font-light mb-6">
         Connect with a licensed Ontario real estate professional.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <input
-          type="text"
-          placeholder="Full Name *"
-          required
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full px-3 py-2.5 rounded-lg border border-black/[0.08] text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
-        />
-        <input
-          type="email"
-          placeholder="Email *"
-          required
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full px-3 py-2.5 rounded-lg border border-black/[0.08] text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
-        />
-        <input
-          type="tel"
-          placeholder="Phone"
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          className="w-full px-3 py-2.5 rounded-lg border border-black/[0.08] text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
-        />
-        <textarea
-          placeholder={projectName ? `I'm interested in ${projectName}...` : 'How can we help you?'}
-          rows={3}
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full px-3 py-2.5 rounded-lg border border-black/[0.08] text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors resize-none"
-        />
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="text-label uppercase text-muted block mb-2">Full Name</label>
+          <input
+            type="text"
+            required
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className="w-full border-0 border-b border-black/10 pb-2 text-sm font-light text-primary focus:outline-none focus:border-primary transition-colors bg-transparent"
+          />
+        </div>
+        <div>
+          <label className="text-label uppercase text-muted block mb-2">Email</label>
+          <input
+            type="email"
+            required
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="w-full border-0 border-b border-black/10 pb-2 text-sm font-light text-primary focus:outline-none focus:border-primary transition-colors bg-transparent"
+          />
+        </div>
+        <div>
+          <label className="text-label uppercase text-muted block mb-2">Phone</label>
+          <input
+            type="tel"
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            className="w-full border-0 border-b border-black/10 pb-2 text-sm font-light text-primary focus:outline-none focus:border-primary transition-colors bg-transparent"
+          />
+        </div>
+        <div>
+          <label className="text-label uppercase text-muted block mb-2">Message</label>
+          <textarea
+            rows={3}
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            placeholder={projectName ? `I'm interested in ${projectName}...` : ''}
+            className="w-full border-0 border-b border-black/10 pb-2 text-sm font-light text-primary focus:outline-none focus:border-primary transition-colors bg-transparent resize-none"
+          />
+        </div>
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-accent text-white py-2.5 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+          className="w-full bg-primary text-white py-3.5 text-nav uppercase hover:bg-primary/80 transition-colors duration-300 disabled:opacity-50"
         >
-          <Send className="w-4 h-4" />
           {loading ? 'Sending...' : 'Send Inquiry'}
         </button>
       </form>
 
-      <p className="text-xs text-muted mt-3 leading-relaxed">
-        By submitting this form, you agree to our{' '}
-        <a href="/terms" className="underline">Terms of Service</a> and{' '}
+      <p className="text-[10px] text-muted/60 mt-4 font-light leading-relaxed">
+        By submitting, you agree to our{' '}
+        <a href="/terms" className="underline">Terms</a> and{' '}
         <a href="/privacy" className="underline">Privacy Policy</a>.
-        SimpleHome.ca partners with licensed Ontario real estate professionals to assist you.
-        We are an informational platform and do not directly participate in real estate transactions.
+        SimpleHome.ca partners with licensed Ontario real estate professionals.
       </p>
     </div>
   );
